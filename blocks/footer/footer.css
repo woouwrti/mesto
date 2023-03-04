@@ -2,7 +2,6 @@
   max-width: calc(1280px - 2 * 200px);
   
   margin: 67px auto 0;
-  /* margin: minmax(min-content, max-content) auto 0; */
   padding: 0 19px 60px;
 }
 
