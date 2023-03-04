@@ -1,14 +1,14 @@
 .footer__title {
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   color: #545454;
-
+  text-align: left;
   max-width: 282px;
 
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
