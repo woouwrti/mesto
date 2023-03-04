@@ -1,0 +1,12 @@
+.header__line {
+  border-bottom: 1px solid #545454;
+
+  margin: 41px 0 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .header__line {
+    margin: 32px -27px 0;
+  }
+}

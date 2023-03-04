@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+	<title>mesto</title>
+</head>
+
+<body>
+  <div class = "page">
+	  <header class = "header">
+      <img src="./images/logo-mesto-russia-white.svg" alt="Место Россия" class = "header__logo">
+      <div class = "header__line"></div>
+    </header>
+    <main class = "main">
+      <content class = "profile">
+          <img src="" alt="Фото" class = "profile__avatar">
+          <div class = "profile__info">
+            <div class = "profile__name-line">
+              <h1 class = "profile__name">Имя</h1>
+              <button class = "profile__edit-button"></button>
+            </div>
+            <p class = "profile__description">Описание</p>
+          </div>
+        <button class = "profile__add-button"></button>
+      </content>
+      <content class = "elements">
+        <div class = "element" id = 0>
+          <img src="./images/3c1398f5473a452eaf4051ec0c4d180f--mists-terra.jpg" alt="Лес" class = "element__picture">
+          <div class = "element__footer">
+            <h2 class = "element__title">Лес</h2>
+            <button class = "element__button"></button>
+          </div>
+        </div>
+        <div class = "element" id = 1>
+          <img src="./images/b7d3e55b6de457af10bf46e04bfe86ad.jpg" alt="Лис" class = "element__picture">
+          <div class = "element__footer">
+            <h2 class = "element__title">Лис</h2>
+            <button class = "element__button"></button>
+          </div>
+        </div>
+        <div class = "element" id = 2>
+          <img src="./images/4k-Wallpaper-Fox-Snow-Nature-Phototography-768x480.jpg" alt="Лис в лесу" class = "element__picture">
+          <div class = "element__footer">
+            <h2 class = "element__title">Лис в лесу</h2>
+            <button class = "element__button"></button>
+          </div>
+        </div>
+        <div class = "element" id = 3>
+          <img src="./images/Coast_Houses_Sea_Italy_Liguria_Camogli_587565_1920x1200.jpg" alt="Лигурия" class = "element__picture">
+          <div class = "element__footer">
+            <h2 class = "element__title">Лигурия</h2>
+            <button class = "element__button"></button>
+          </div>
+        </div>
+        <div class = "element" id = 4>
+          <img src="./images/file.jpg" alt="Корабль" class = "element__picture">
+          <div class = "element__footer">
+            <h2 class = "element__title">Корабль в Лигурию</h2>
+            <button class = "element__button"></button>
+          </div>
+        </div>
+        <div class = "element" id = 5>
+          <img src="./images/lt6r487uj8rvz5nvzq.jpg" alt="Регулировщик" class = "element__picture">
+          <div class = "element__footer">
+            <h2 class = "element__title">Регулировщик</h2>
+            <button class = "element__button"></button>
+          </div>
+        </div>
+      </content>
+    </main>
+    <footer class = "footer">
+      <h2 class = "footer__title">© 2023 Mesto Russia</h2>
+    </footer>
+    <content class = "edit-profile">
+      <div class = "edit-profile__box">
+        <button class = "edit-profile__close-button"></button>
+        <h2 class = "edit-profile__title">Редактировать профиль</h2>
+        <input type = "text" id = 'name' placeholder = "Имя" class = "edit-profile__profile-line">
+        <input type = "text" id = 'desc' placeholder = "Описание" class = "edit-profile__profile-line">
+        <button class = "edit-profile__save-button">Сохранить</button>
+      </div>
+    </content>
+    <script src="scripts/script.js"></script>
+  </div>
+</body>
+
+</html>

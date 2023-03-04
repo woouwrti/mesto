@@ -1,0 +1,12 @@
+.element__picture {
+  background-color: lightgreen;
+  width: 282px;
+  height: 282px;
+  display: block;
+  object-fit:cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  margin: 0;
+  padding: 0;
+}
