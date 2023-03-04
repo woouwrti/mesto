@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-	<title>mesto</title>
+  <title>mesto</title>
 </head>
+
 <body>
   <div class="page">
-	  <header class="header">
+    <header class="header">
       <img src="./images/logo-mesto-russia-white.svg" alt="Место Россия" class="header__logo">
     </header>
     <main class="main">
       <section class="profile">
-          <img src="./images/profile.jpg" alt="Фото" class="profile__avatar">
-          <div class="profile__info">
-            <div class="profile__name-line">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button type="button" class="profile__edit-button"></button>
-            </div>
-            <p class="profile__description">Исследователь океана</p>
+        <img src="./images/profile.jpg" alt="Фото" class="profile__avatar">
+        <div class="profile__info">
+          <div class="profile__name-line">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button"></button>
           </div>
+          <p class="profile__description">Исследователь океана</p>
+        </div>
         <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
@@ -39,14 +41,16 @@
           </div>
         </article>
         <article class="element">
-          <img src="./images/4k-Wallpaper-Fox-Snow-Nature-Phototography-768x480.jpg" alt="Лис в лесу" class="element__picture">
+          <img src="./images/4k-Wallpaper-Fox-Snow-Nature-Phototography-768x480.jpg" alt="Лис в лесу"
+            class="element__picture">
           <div class="element__footer">
             <h2 class="element__title">Лис в лесу</h2>
             <button type="submit" class="element__button"></button>
           </div>
         </article>
         <article class="element">
-          <img src="./images/Coast_Houses_Sea_Italy_Liguria_Camogli_587565_1920x1200.jpg" alt="Лигурия" class="element__picture">
+          <img src="./images/Coast_Houses_Sea_Italy_Liguria_Camogli_587565_1920x1200.jpg" alt="Лигурия"
+            class="element__picture">
           <div class="element__footer">
             <h2 class="element__title">Лигурия</h2>
             <button type="submit" class="element__button"></button>
@@ -77,7 +81,8 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form action="" method="get" id="profile-input">
           <input type="text" name="name" id="input-name" placeholder="Имя" class="popup__profile-line">
-          <input type="text" name="description" id="input-description" placeholder="Описание" class="popup__profile-line">
+          <input type="text" name="description" id="input-description" placeholder="Описание"
+            class="popup__profile-line">
           <button type="submit" class="popup__save-button">Сохранить</button>
         </form>
       </div>
@@ -85,4 +90,5 @@
     <script src="scripts/index.js"></script>
   </div>
 </body>
+
 </html>
