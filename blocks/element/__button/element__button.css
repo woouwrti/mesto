@@ -1,6 +1,6 @@
 .element__button {
   background-image: url(../../../images/buttom-logo-heart-white.svg);
-  background-color: #FFFFFF;
+  background-color: transparent;
   border: 0;
   height: 19px;
   width: 22px;

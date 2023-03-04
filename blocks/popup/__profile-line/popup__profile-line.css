@@ -1,4 +1,4 @@
-.edit-profile__profile-line {
+.popup__profile-line {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -11,16 +11,26 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-  margin: 0;
+  margin: 17px 0 0;
   padding: 0;
 }
 
-.edit-profile__profile-line:focus {
+.popup__profile-line:first-child {
+  margin: 40px 0 0;
+}
+
+@media screen and (max-widht: 480px) {
+  .popup__profile-line:first-child {
+    margin: 61px 0 0;
+  }
+}
+
+.popup__profile-line:focus {
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
-.edit-profile__profile-line::selection {
+.popup__profile-line::selection {
   color: white;
   background: black;
 }

@@ -1,4 +1,4 @@
-.edit-profile__save-button {
+.popup__save-button {
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -13,19 +13,19 @@
   border: none;
   border-radius: 3px;
 
-  transition: opacity 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
   cursor: pointer;
 
   margin: 31px 0 0;
   padding: 0;
 }
 
-.edit-profile__save-button:hover {
-  opacity: 0.8;
+.popup__save-button:hover {
+  background-color: rgba(0, 0, 0, 0.8)
 }
 
 @media screen and (max-width: 960px) {
-  .edit-profile__save-button {
+  .popup__save-button {
     font-size: 14px;
     line-height: 17px;
 
