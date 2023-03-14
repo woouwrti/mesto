@@ -1,5 +1,6 @@
 .popup {
-  display: none;
+  display: flex;
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,4 +11,12 @@
 
   margin: 0;
   padding: 0;
+
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.popup.popup_opened{
+  visibility: visible;
+  opacity: 1;
 }
