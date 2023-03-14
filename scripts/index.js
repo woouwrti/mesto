@@ -26,6 +26,7 @@ const initialCards = [
 ];
 
 const elements = document.querySelector('.elements');
+const elementTemplate = document.querySelector('#element-template').content;
 initialCards.forEach(initialCard => elements.append(createCard(initialCard.name, initialCard.link)));
 
 const profile = document.querySelector('.profile');
@@ -34,22 +35,21 @@ const profileDesc = profile.querySelector('.profile__description');
 const profileEditProfileButton = profile.querySelector('.profile__edit-button');
 const profileAddImgButton = profile.querySelector('.profile__add-button');
 
-const popupProfile = document.getElementById('popup-profile');
-const popupProfileForm = document.getElementById('input-profile');
-const popupProfileName = document.getElementById('input-profile-name');
-const popupProfileDesc = document.getElementById('input-profile-description');
+const popupProfile = document.querySelector('#popup-profile');
+const popupProfileForm = document.querySelector('#input-profile');
+const popupProfileName = document.querySelector('#input-profile-name');
+const popupProfileDesc = document.querySelector('#input-profile-description');
 
-const popupCard = document.getElementById('popup-card');
-const popupCardForm = document.getElementById('input-card');
-const popupCardName = document.getElementById('input-card-name');
-const popupCardLink = document.getElementById('input-card-link');
+const popupCard = document.querySelector('#popup-card');
+const popupCardForm = document.querySelector('#input-card');
+const popupCardName = document.querySelector('#input-card-name');
+const popupCardLink = document.querySelector('#input-card-link');
 
-const popupZoomedImage = document.getElementById('popup-img');
+const popupZoomedImage = document.querySelector('#popup-img');
 const popupZoomedImageImg = popupZoomedImage.querySelector('.popup__image');
 const popupZoomedImageTitle = popupZoomedImage.querySelector('.popup__image-title');
 
 function createCard(cardName, cardLink) {
-  const elementTemplate = document.querySelector('#element-template').content;
   const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
 
   cardElement.querySelector('.element__title').textContent = cardName;
@@ -57,7 +57,7 @@ function createCard(cardName, cardLink) {
   cardElement.querySelector('.element__picture').alt = cardName;
 
   cardElement.querySelector('.element__button').addEventListener('click',
-    function () {this.classList.toggle('element__button_active')});
+    function () { this.classList.toggle('element__button_active') });
   cardElement.querySelector('.element__basket').addEventListener('click',
     () => cardElement.remove());
   cardElement.querySelector('.element__picture').addEventListener('click',
@@ -66,56 +66,55 @@ function createCard(cardName, cardLink) {
   return cardElement
 }
 
-function changePopupVisibleById (popupId) {
-  const currentPopup = document.getElementById(popupId);
-  currentPopup.classList.toggle('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 }
 
-function openProfileEditorById (id) {
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
+function openProfileEditor () {
   popupProfileName.value = profileName.textContent;
   popupProfileDesc.value = profileDesc.textContent;
-  changePopupVisibleById(id);
+  openPopup(popupProfile);
 }
 
-function saveProfileEditorChangeById (id, event) {
+function saveProfileEditorChange (event) {
   event.preventDefault();
   profileName.textContent = popupProfileName.value;
   profileDesc.textContent = popupProfileDesc.value;
-  changePopupVisibleById(id);
+  closePopup(popupProfile);
 }
 
-function openCardEditorById (id) {
-  popupCardName.value = ''
-  popupCardLink.value = '';
-  changePopupVisibleById(id);
+function openCardEditor () {
+  popupCardForm.reset();
+  openPopup(popupCard);
 }
 
-function saveCardEditorChangeById (id, event) {
+function saveCardEditorChange (event) {
   event.preventDefault();
   const cardName = popupCardName.value;
   const cardLink = popupCardLink.value;
-
   elements.prepend(createCard(cardName, cardLink));
-  changePopupVisibleById(id);
+  closePopup(popupCard);
 }
 
 function zoomCardImage (name, link) {
   popupZoomedImageTitle.textContent = name;
   popupZoomedImageImg.src = link;
   popupZoomedImageImg.alt = name;
-  changePopupVisibleById('popup-img');
+  openPopup(popupZoomedImage);
 }
 
-profileEditProfileButton.addEventListener('click', () => {openProfileEditorById('popup-profile')});
-popupProfileForm.addEventListener('submit', () => saveProfileEditorChangeById('popup-profile', event));
+profileEditProfileButton.addEventListener('click', () => openProfileEditor());
+popupProfileForm.addEventListener('submit', (event) => saveProfileEditorChange(event));
 
-profileAddImgButton.addEventListener('click', () => openCardEditorById('popup-card'));
-popupCardForm.addEventListener('submit', () => saveCardEditorChangeById('popup-card', event));
+profileAddImgButton.addEventListener('click', () => openCardEditor());
+popupCardForm.addEventListener('submit', (event) => saveCardEditorChange(event));
 
-document.querySelectorAll('.popup__close-button').forEach(element => {
-  element.addEventListener('click', () => element.closest(".popup").classList.toggle('popup_opened'));
+const closeButtons = document.querySelectorAll('.popup__close-button');
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
-
-
-
-// console.log('page loaded!');
