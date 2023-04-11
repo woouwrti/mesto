@@ -11,12 +11,13 @@ const popupProfile = document.querySelector('#popup-profile');
 const popupProfileForm = document.querySelector('#input-profile');
 const popupProfileName = document.querySelector('#input-profile-name');
 const popupProfileDesc = document.querySelector('#input-profile-description');
+const popupProfileSaveButton = popupProfile.querySelector('.popup__save-button');
 
 const popupCard = document.querySelector('#popup-card');
 const popupCardForm = document.querySelector('#input-card');
 const popupCardName = document.querySelector('#input-card-name');
 const popupCardLink = document.querySelector('#input-card-link');
-const popupCardSaveButton = popupCard.querySelector('.popup__save-button')
+const popupCardSaveButton = popupCard.querySelector('.popup__save-button');
 
 const popupZoomedImage = document.querySelector('#popup-img');
 const popupZoomedImageImg = popupZoomedImage.querySelector('.popup__image');
@@ -61,6 +62,7 @@ function closePopup(popup) {
 function openProfileEditor() {
   popupProfileName.value = profileName.textContent;
   popupProfileDesc.value = profileDesc.textContent;
+  enableButton(popupProfileSaveButton, settingOfEnableValidation.inactiveButtonClass);
   openPopup(popupProfile);
 }
 
