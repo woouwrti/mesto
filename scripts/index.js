@@ -67,6 +67,8 @@ function createCard(cardName, cardLink) {
 }
 
 function openPopup(popup) {
+  document.addEventListener('keydown', closeByEsc);
+
   popup.classList.add('popup_opened');
 }
 
@@ -74,25 +76,25 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-function openProfileEditor () {
+function openProfileEditor() {
   popupProfileName.value = profileName.textContent;
   popupProfileDesc.value = profileDesc.textContent;
   openPopup(popupProfile);
 }
 
-function saveProfileEditorChange (event) {
+function saveProfileEditorChange(event) {
   event.preventDefault();
   profileName.textContent = popupProfileName.value;
   profileDesc.textContent = popupProfileDesc.value;
   closePopup(popupProfile);
 }
 
-function openCardEditor () {
+function openCardEditor() {
   popupCardForm.reset();
   openPopup(popupCard);
 }
 
-function saveCardEditorChange (event) {
+function saveCardEditorChange(event) {
   event.preventDefault();
   const cardName = popupCardName.value;
   const cardLink = popupCardLink.value;
@@ -100,7 +102,15 @@ function saveCardEditorChange (event) {
   closePopup(popupCard);
 }
 
-function zoomCardImage (name, link) {
+function closeByEsc (event) {
+  if (event.key === 'Escape') {
+    closePopup(popupCard);
+    closePopup(popupProfile);
+    closePopup(popupZoomedImage);
+  }
+}
+
+function zoomCardImage(name, link) {
   popupZoomedImageTitle.textContent = name;
   popupZoomedImageImg.src = link;
   popupZoomedImageImg.alt = name;
@@ -118,3 +128,6 @@ closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
+popupZoomedImage.addEventListener('click',
+  (event) => { if (event.target.id === 'popup-img') {closePopup(popupZoomedImage)}});
