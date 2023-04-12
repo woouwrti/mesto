@@ -107,5 +107,10 @@ popupCloseButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-popupZoomedImage.addEventListener('click',
-  (evt) => { if (evt.target === evt.currentTarget) { closePopup(popupZoomedImage) } });
+listOfPopups = Array.from(document.querySelectorAll('.popup'));
+listOfPopups.forEach((item) => {
+  item.addEventListener('click',
+    (evt) => {
+      if (evt.target === evt.currentTarget) { closePopup(item) }
+    });
+});
