@@ -1,57 +1,35 @@
+import { zoomCardImage } from './index.js'
+
 export class Card {
-  #cardsContainerTemplate;
-  #popupZoomedImage;
-  #popupZoomedImageImg;
-  #popupZoomedImageTitle;
 
-  constructor(setting) {
-    this.#cardsContainerTemplate = setting.cardsContainerTemplate;
-    this.#popupZoomedImage = setting.popupZoomedImage;
-    this.#popupZoomedImageImg = setting.popupZoomedImageImg;
-    this.#popupZoomedImageTitle = setting.popupZoomedImageTitle;
+  constructor(data, template) {
+    this._data = data;
+    this._cardElement = template.querySelector('.element').cloneNode(true);
+
+    this._zoomCardImage = zoomCardImage;
   }
 
-  #closeByEsc = (evt) => {
-    if (evt.key === 'Escape') {
-      this.#closePopup(document.querySelector('.popup_opened'));
-    }
-  }
-
-  #openPopup = (popup) => {
-    document.addEventListener('keydown', this.#closeByEsc);
-    popup.classList.add('popup_opened');
-  }
-
-  #closePopup = (popup) => {
-    document.removeEventListener('keydown', this.#closeByEsc);
-    popup.classList.remove('popup_opened');
-  }
-
-  #zoomCardImage = (name, link) => {
-    this.#popupZoomedImageTitle.textContent = name;
-    this.#popupZoomedImageImg.src = link;
-    this.#popupZoomedImageImg.alt = name;
-    this.#openPopup(this.#popupZoomedImage);
-  }
-
-  createCard = (cardName, cardLink) => {
-    const cardElement = this.#cardsContainerTemplate.querySelector('.element').cloneNode(true);
-    const cardElementPicture = cardElement.querySelector('.element__picture')
-
-    cardElement.querySelector('.element__title').textContent = cardName;
-    cardElementPicture.src = cardLink;
-    cardElementPicture.alt = cardName;
-
-    cardElement.querySelector('.element__button').addEventListener('click',
+  _setEventListeners() {
+    this._cardElement.querySelector('.element__button').addEventListener('mousedown',
       function () { this.classList.toggle('element__button_active') });
 
-    cardElement.querySelector('.element__basket').addEventListener('click',
-      () => cardElement.remove());
+    this._cardElement.querySelector('.element__basket').addEventListener('mousedown',
+      () => this._cardElement.remove());
 
-    cardElementPicture.addEventListener('click',
-      () => this.#zoomCardImage(cardName, cardLink));
+    this._cardElementPicture.addEventListener('click',
+      () => this._zoomCardImage(this._data.name, this._data.link));
+  }
 
-    return cardElement
+  createCard = () => {
+    this._cardElementPicture = this._cardElement.querySelector('.element__picture');
+
+    this._cardElement.querySelector('.element__title').textContent = this._data.name;
+    this._cardElementPicture.src = this._data.link;
+    this._cardElementPicture.alt = this._data.name;
+
+    this._setEventListeners();
+
+    return this._cardElement
   }
 
 }
