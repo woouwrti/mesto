@@ -1,12 +1,13 @@
-import { zoomCardImage } from './index.js'
+// import { zoomCardImage } from './index.js'
 
 export class Card {
 
-  constructor(data, template) {
+  constructor(data, template, handleCardClick) {
     this._data = data;
     this._cardElement = template.querySelector('.element').cloneNode(true);
+    this.handleCardClick = handleCardClick;
 
-    this._zoomCardImage = zoomCardImage;
+    // this._zoomCardImage = zoomCardImage;
   }
 
   _setEventListeners() {
@@ -17,7 +18,7 @@ export class Card {
       () => this._cardElement.remove());
 
     this._cardElementPicture.addEventListener('click',
-      () => this._zoomCardImage(this._data.name, this._data.link));
+      () => this.handleCardClick(this._data.name, this._data.link));
   }
 
   createCard = () => {
