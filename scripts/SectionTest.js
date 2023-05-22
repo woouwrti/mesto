@@ -10,4 +10,5 @@ export class Section {
   addItem() {
     this._containerSelector.prepend(item);
   }
+
 }

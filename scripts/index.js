@@ -1,9 +1,8 @@
 import { initialCards } from './cards.js' // format { name, link }
 import { validationSettings } from './validate.js'
-import { Card } from './Card.js'
-import { FormValidator } from './FormValidator.js'
+import Card from './Card.js'
+import FormValidator from './FormValidator.js'
 import Section from './Section.js'
-import Popup from './Popup.js'
 import PopupWithImage from './PopupWithImage.js'
 import PopupWithForm from './PopupWithForm.js'
 import UserInfo from './UserInfo.js'
@@ -80,82 +79,3 @@ const createCard = (data) => {
 
 const cardSection = new Section({ items: initialCards, renderer: createCard }, cardsContainer);
 cardSection.rendererAllItems()
-
-// const listOfPopups = Array.from(document.querySelectorAll('.popup'));
-
-// console.log(listOfPopups)
-// listOfPopups.forEach(item => console.log(item.id))
-
-// listOfPopups.forEach((popup) => {
-//   const popupItem = new Popup(popup);
-// });
-
-// const closeByEsc = (evt) => {
-//   if (evt.key === 'Escape') {
-//     closePopup(document.querySelector('.popup_opened'));
-//   }
-// }
-// const openPopup = (popup) => {
-//   document.addEventListener('keydown', closeByEsc);
-//   popup.classList.add('popup_opened');
-// }
-// const closePopup = (popup) => {
-//   document.removeEventListener('keydown', closeByEsc);
-//   popup.classList.remove('popup_opened');
-// }
-
-// const openProfileEditor = () => {
-//   popupProfileName.value = profileName.textContent;
-//   popupProfileDesc.value = profileDesc.textContent;
-//   formValidators['profile-form'].resetValidation();
-//   formValidators['profile-form'].enableButton();
-//   openPopup(popupProfile);
-// }
-// const saveProfileEditorChange = (evt) => {
-//   evt.preventDefault();
-//   profileName.textContent = popupProfileName.value;
-//   profileDesc.textContent = popupProfileDesc.value;
-//   closePopup(popupProfile);
-// }
-
-// const openCardEditor = () => {
-//   popupCardForm.reset();
-//   formValidators['card-form'].resetValidation();
-//   formValidators['card-form'].disableButton();
-//   openPopup(popupCard);
-// }
-// const saveCardEditorChange = (evt) => {
-//   evt.preventDefault();
-//   const cardName = popupCardName.value;
-//   const cardLink = popupCardLink.value;
-//   cardsContainer.prepend(createCard({ name: cardName, link: cardLink }));
-//   closePopup(popupCard);
-// }
-
-// export const zoomCardImage = (name, link) => {
-//   popupZoomedImageTitle.textContent = name;
-//   popupZoomedImageImg.src = link;
-//   popupZoomedImageImg.alt = name;
-//   openPopup(popupZoomedImage);
-// }
-
-// initialCards.forEach(initialCard => {
-//   cardsContainer.append(createCard(initialCard))
-// });
-
-// profileEditProfileButton.addEventListener('click', openProfileEditor);
-// popupProfileForm.addEventListener('submit', saveProfileEditorChange);
-
-// profileAddImgButton.addEventListener('click', openCardEditor);
-// popupCardForm.addEventListener('submit', saveCardEditorChange);
-
-// listOfPopups.forEach((popup) => {
-//   popup.addEventListener('mousedown', (evt) => {
-//     if (evt.target.classList.contains('popup_opened')) {
-//       closePopup(popup)
-//     }
-//     if (evt.target.classList.contains('popup__close-button')) {
-//       closePopup(popup)
-//     }
-//   })
-// })

@@ -1,13 +1,11 @@
 // import { zoomCardImage } from './index.js'
 
-export class Card {
+export default class Card {
 
   constructor(data, template, handleCardClick) {
     this._data = data;
     this._cardElement = template.querySelector('.element').cloneNode(true);
     this.handleCardClick = handleCardClick;
-
-    // this._zoomCardImage = zoomCardImage;
   }
 
   _setEventListeners() {

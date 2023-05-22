@@ -22,4 +22,5 @@ export default class Section {
       this._containerSelector.append(item);
     }
   }
+
 }

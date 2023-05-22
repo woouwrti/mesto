@@ -18,4 +18,5 @@ export default class UserInfo {
     this._profileName.textContent = selectorName;
     this._profileDesc.textContent = selectorDesc;
   }
+
 }
