@@ -1,3 +1,5 @@
+import '../pages/index.css';
+
 import { initialCards } from './cards.js' // format { name, link }
 import { validationSettings } from './validate.js'
 import Card from './Card.js'
