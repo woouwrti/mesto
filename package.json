@@ -4,7 +4,8 @@
   "description": "## Обзор",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist & webpack --mode production",
+    "buildwin": "rd /s dist & webpack --mode production",
+    "build": "rd -r dist & webpack --mode production",
     "dev": "webpack serve --open --mode development"
   },
   "keywords": [],

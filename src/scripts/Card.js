@@ -10,23 +10,24 @@ export default class Card {
 
   _setEventListeners() {
     this._cardElement.querySelector('.element__button').addEventListener('mousedown',
-      this.likeButton
+      this.likeCard
     );
 
     this._cardElement.querySelector('.element__basket').addEventListener('mousedown',
-      () => this.basketButton()
+      () => this.deleteCard()
     );
 
     this._cardElementPicture.addEventListener('click',
       () => this.handleCardClick(this._data.name, this._data.link));
   }
 
-  likeButton() {
+  likeCard() {
     this.classList.toggle('element__button_active');
   }
 
-  basketButton = () => {
+  deleteCard = () => {
     this._cardElement.remove();
+    this._cardElement = null;
   }
 
   createCard = () => {
