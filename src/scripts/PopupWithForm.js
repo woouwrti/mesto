@@ -7,6 +7,7 @@ export default class PopupWithForm extends Popup {
     this._popupForm = this._popup.querySelector('.popup__form');
     this._inputsList = this._popupForm.querySelectorAll('.popup__profile-line');
     this._submitButton = this._popupForm.querySelector('.popup__save-button');
+    this._submitButtonOriginalTitle = this._submitButton.textContent;
 
     this._inputValues = {};
 
@@ -32,6 +33,14 @@ export default class PopupWithForm extends Popup {
   close() {
     this._popupForm.reset();
     super.close()
+  }
+
+  setAwaitTitle() {
+    this._submitButton.textContent = 'Выполняем...';
+  }
+
+  setOriginalTitle() {
+    this._submitButton.textContent = this._submitButtonOriginalTitle;
   }
 
 }

@@ -7,9 +7,21 @@ export default class Section {
     this._containerSelector = containerSelector;
   }
 
+  setRendererItems(items) {
+    this._items = items;
+  }
+
   rendererAllItems() {
     this._items.forEach(item => {
-      this.addItem(this._renderer({ name: item.name, link: item.link }), false)
+      this.addItem(
+      this._renderer({
+        name: item.name,
+        link: item.link,
+        likes: item.likes,
+        owner: item.owner,
+        _id: item._id,
+      }),
+      false)
     });
   }
 
