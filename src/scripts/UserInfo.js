@@ -18,12 +18,6 @@ export default class UserInfo {
     return this._userID
   }
 
-  setUserData({ name, desc, userID }) {
-    this._profileName.textContent = name;
-    this._profileDesc.textContent = desc;
-    this._userID = userID;
-  }
-
   setUserName(name) {
     this._profileName.textContent = name;
   }
@@ -34,5 +28,9 @@ export default class UserInfo {
 
   setUserAvatar(avatarSrc) {
     this._profileAvatar.src = avatarSrc;
+  }
+
+  setUserID(userID) {
+    this._userID = userID;
   }
 }

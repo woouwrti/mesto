@@ -1,15 +1,15 @@
 import '../pages/index.css';
 
-import { validationSettings } from './constants.js'
-import Card from './Card.js'
-import FormValidator from './FormValidator.js'
-import Section from './Section.js'
-import PopupWithImage from './PopupWithImage.js'
-import PopupWithForm from './PopupWithForm.js'
-import PopupConfirmation from './PopupConfirmation';
-import UserInfo from './UserInfo.js'
-import { apiConfig } from './apiConfig.js';
-import Api from './Api.js';
+import { validationSettings } from '../utils/constants.js'
+import Card from '../scripts/Card.js'
+import FormValidator from '../scripts/FormValidator.js'
+import Section from '../scripts/Section.js'
+import PopupWithImage from '../scripts/PopupWithImage.js'
+import PopupWithForm from '../scripts/PopupWithForm.js'
+import PopupConfirmation from '../scripts/PopupConfirmation';
+import UserInfo from '../scripts/UserInfo.js'
+import { apiConfig } from '../utils/apiConfig.js';
+import Api from '../scripts/Api.js';
 
 const formValidators = {}
 const enableValidation = (config) => {
@@ -195,14 +195,14 @@ Promise.all([
   api.getInitialCards()
 ])
   .then(res => {
-    userData.setUserData({
-      name: res[0].name,
-      desc: res[0].about,
-      userID: res[0]._id
-    });
-    userData.setUserAvatar(res[0].avatar);
+    const [gettedUserData, gettedCards] = [res[0], res[1]];
 
-    cardSection.setRendererItems(res[1]);
+    userData.setUserName(gettedUserData.name);
+    userData.setUserDesc(gettedUserData.about);
+    userData.setUserAvatar(gettedUserData.avatar);
+    userData.setUserID(gettedUserData._id);
+
+    cardSection.setRendererItems(gettedCards);
     cardSection.rendererAllItems();
   })
   .catch(err => console.error(err));
